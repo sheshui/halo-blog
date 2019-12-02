@@ -94,9 +94,10 @@ public class MarkdownUtils {
     }
 
     /**
+     * Get front-matter
      *
-     * @param markdown
-     * @return
+     * @param markdown blog content
+     * @return map
      */
     public static Map<String, List<String>> getFrontMatter(String markdown){
         AbstractYamlFrontMatterVisitor visitor=new AbstractYamlFrontMatterVisitor();
