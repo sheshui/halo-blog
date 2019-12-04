@@ -1,4 +1,4 @@
-package neuqsoft.sheshui.haloblog.controller;
+package neuqsoft.sheshui.haloblog.repository.base;
 
 import neuqsoft.sheshui.haloblog.model.entity.Blog;
 import neuqsoft.sheshui.haloblog.model.enums.BlogStatus;
@@ -10,8 +10,8 @@ import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.lang.NonNull;
+import org.springframework.web.bind.annotation.PathVariable;
 
-import javax.xml.crypto.Data;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -52,7 +52,8 @@ public interface BlogRepo<BLOG extends Blog> extends BaseRepo<BLOG, Integer> {
     @NonNull
     Page<BLOG> findAllByStatus(@NonNull BlogStatus status, @NonNull Pageable pageable);
 
-    /**依照发布状态查询
+    /**
+     * 依照发布状态查询
      * Finds blog by status.
      *
      * @param status blog status must not be null
@@ -100,12 +101,12 @@ public interface BlogRepo<BLOG extends Blog> extends BaseRepo<BLOG, Integer> {
      * 按照博客链接和发布状态获取Optional对象
      * Gets blog by url and status.
      *
-     * @param url       url must not be blank
-     * @param status    statis must not be null
+     * @param url    url must not be blank
+     * @param status statis must not be null
      * @return an optional blog
      */
     @NonNull
-    Optional<BLOG> getByUrlAndStatus(@NonNull String url,@NonNull BlogStatus status);
+    Optional<BLOG> getByUrlAndStatus(@NonNull String url, @NonNull BlogStatus status);
 
     /**
      * 按照发布状态查询发布博客数
@@ -127,11 +128,11 @@ public interface BlogRepo<BLOG extends Blog> extends BaseRepo<BLOG, Integer> {
     /**
      * 按照标题和id判断博客是否存在
      *
-     * @param id blog id
+     * @param id    blog id
      * @param title blog title
      * @return if blog is exit
      */
-    boolean existsByIdAndUrl(@NonNull Integer id,@NonNull String title);
+    boolean existsByIdAndUrl(@NonNull Integer id, @NonNull String title);
 
     /**
      * 按照博客链接获取博客
@@ -144,11 +145,22 @@ public interface BlogRepo<BLOG extends Blog> extends BaseRepo<BLOG, Integer> {
 
     /**
      * 更新访问数
-     * @param visit 访问数
+     *
+     * @param visit  访问数
      * @param blogId 博客id
-     * @return changed visits count
+     * @return int
      */
     @Modifying
     @Query("update Blog p set p.visits=p.visits+:visits where p.id=:blogId")
-    int updateVisit(@Param("visit") long visit,@Param("blogId")@NonNull Integer blogId);
+    int updateVisit(@Param("visit") long visit, @Param("blogId") @NonNull Integer blogId);
+
+    /**
+     * 更新喜欢数
+     * @param likes 喜欢数
+     * @param blogId 博客id
+     * @return int
+     */
+    @Modifying
+    @Query("update Blog p set p.likes=p.likes+:likes where p.id=:blogId")
+    int updateLikes(@Param("likes") long likes, @Param("blogId") @NonNull Integer blogId);
 }
