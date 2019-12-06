@@ -3,8 +3,8 @@ server:
 spring:
   datasource:
     url: jdbc:mysql://localhost:3306/halo
-    username: ggfwtest
-    password: ggfwtest
+    username: root
+    password: root
     driver-class-name: com.mysql.jdbc.Driver
 
   jpa:
