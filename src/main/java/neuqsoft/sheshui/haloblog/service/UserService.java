@@ -100,7 +100,7 @@ public interface UserService {
      * @param username username 用户名
      * @return is exist 是否存在
      */
-    boolean isRegisted(@NonNull String username);
+    boolean isRegisted(@NonNull UserParam user);
 
     /**
      * Checks the password is match the user password.
