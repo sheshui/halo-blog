@@ -1,7 +1,6 @@
 package neuqsoft.sheshui.haloblog.repository;
 
 import neuqsoft.sheshui.haloblog.model.entity.User;
-import neuqsoft.sheshui.haloblog.repository.base.BaseRepo;
 import org.springframework.lang.NonNull;
 
 import java.util.Optional;
@@ -9,7 +8,7 @@ import java.util.Optional;
 /**
  * @author sheshui
  */
-public interface UserRepository extends BaseRepo<User,Integer> {
+public interface UserRepository {
 
     /**
      * 按用户名查询用户
