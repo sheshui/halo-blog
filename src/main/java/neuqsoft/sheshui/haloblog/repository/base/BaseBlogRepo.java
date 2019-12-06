@@ -21,7 +21,7 @@ import java.util.Optional;
  *
  * @author sheshui
  */
-public interface BlogRepo<BLOG extends Blog> extends BaseRepo<BLOG, Integer> {
+public interface BaseBlogRepo<BLOG extends Blog> extends BaseRepo<BLOG, Integer> {
 
     /**
      * 查询访问总数
