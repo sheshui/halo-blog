@@ -2,6 +2,8 @@ package neuqsoft.sheshui.haloblog.service;
 
 import neuqsoft.sheshui.haloblog.model.entity.User;
 import neuqsoft.sheshui.haloblog.model.params.UserParam;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.repository.Repository;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
@@ -10,7 +12,7 @@ import java.util.Optional;
 /**
  * @author sheshui
  */
-public interface UserService {
+public interface UserService  {
 
     String LOGIN_FAILURE_COUNT_KEY="login.failure.count";
 

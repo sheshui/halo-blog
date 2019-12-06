@@ -1,6 +1,7 @@
 package neuqsoft.sheshui.haloblog.repository;
 
 import neuqsoft.sheshui.haloblog.model.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.lang.NonNull;
 
 import java.util.Optional;
@@ -8,7 +9,7 @@ import java.util.Optional;
 /**
  * @author sheshui
  */
-public interface UserRepository {
+public interface UserRepository extends JpaRepository<User,Integer> {
 
     /**
      * 按用户名查询用户
