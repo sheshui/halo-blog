@@ -27,7 +27,5 @@ public class SignUpParam implements InputConverter<User> {
     @Size(max = 100, message = "用户密码长度不能超过 {max}")
     private String password;
 
-    @NotBlank(message = "登录密码不能为空")
-    @Size(max = 100, message = "用户密码长度不能超过 {max}")
-    private String confirmPassword;
+
 }

@@ -95,13 +95,13 @@ public class Blog extends BaseEntity {
      * 是否置顶
      * whether to the topBlog
      */
-    @Column(name = "top_priority", columnDefinition = "int default ''")
+    @Column(name = "top_priority", columnDefinition = "int default 0")
     private Integer topPriority;
     /**
      * 创建方式
      * Create from,server or WeChat.
      */
-    @Column(name = "create_from", columnDefinition = "int default ''")
+    @Column(name = "create_from", columnDefinition = "int default 0")
     private CreateFrom createFrom;
     /**
      * 喜欢数
@@ -114,7 +114,7 @@ public class Blog extends BaseEntity {
      * 编辑时间
      * Edit time.
      */
-    @Column(name = "edit_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP")
+    @Column(name = "edit_time", columnDefinition = "timestamp")
     private Date editTime;
 
     @Override
@@ -124,7 +124,7 @@ public class Blog extends BaseEntity {
         id = null;
 
         if (editTime == null) {
-            editTime = getCreateTime();
+            editTime = getUpdateTime();
         }
         if (status == null) {
             status = BlogStatus.DRAFT;

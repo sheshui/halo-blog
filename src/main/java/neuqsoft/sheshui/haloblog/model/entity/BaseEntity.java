@@ -1,6 +1,9 @@
 package neuqsoft.sheshui.haloblog.model.entity;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
+import neuqsoft.sheshui.haloblog.utils.DateUtils;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -11,13 +14,16 @@ import java.util.Date;
  * @author sheshui
  */
 @Data
+@ToString
+@MappedSuperclass
+@EqualsAndHashCode
 public class BaseEntity {
 
     @Column(name = "create_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP")
     @Temporal(TemporalType.TIMESTAMP)
     private Date createTime;
 
-    @Column(name = "update_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP")
+    @Column(name = "update_time", columnDefinition = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     private Date updateTime;
 
@@ -26,7 +32,7 @@ public class BaseEntity {
 
     protected void prePersist() {
         deleted = false;
-        Date now = new Date();
+        Date now = DateUtils.now();
         if (createTime == null) {
             createTime = now;
         }

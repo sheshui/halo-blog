@@ -27,12 +27,6 @@ public class User extends BaseEntity {
     private String username;
 
     /**
-     * user neck name,used to display on page.
-     */
-    @Column(name = "nickname", columnDefinition = "varchar(255） not null")
-    private String nickname;
-
-    /**
      * password.
      */
     @Column(name = "password", columnDefinition = "varchar(255) not null")
@@ -59,7 +53,7 @@ public class User extends BaseEntity {
     /**
      * Expire time.
      */
-    @Column(name = "expire_time", columnDefinition = "timestamp default CURRENT_TIMESTAMP")
+    @Column(name = "expire_time", columnDefinition = "timestamp")
     @Temporal(TemporalType.TIMESTAMP)
     private Date expireTime;
 
@@ -71,12 +65,15 @@ public class User extends BaseEntity {
         if (email == null) {
             email = "";
         }
+
         if (avatar == null) {
             avatar = "";
         }
+
         if (description == null) {
             description = "";
         }
+
         if (expireTime == null) {
             expireTime = DateUtils.now();
         }
