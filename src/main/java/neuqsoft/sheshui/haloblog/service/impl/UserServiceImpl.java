@@ -1,7 +1,7 @@
 package neuqsoft.sheshui.haloblog.service.impl;
 
 import neuqsoft.sheshui.haloblog.model.entity.User;
-import neuqsoft.sheshui.haloblog.model.params.UserParam;
+import neuqsoft.sheshui.haloblog.model.params.SignUpParam;
 import neuqsoft.sheshui.haloblog.repository.UserRepository;
 import neuqsoft.sheshui.haloblog.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -46,7 +46,7 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public User createBy(UserParam userParam) {
+    public User createBy(SignUpParam signUpParam) {
         return null;
     }
 
@@ -56,14 +56,14 @@ public class UserServiceImpl implements UserService {
     }
 
     @Override
-    public boolean isRegisted(UserParam userParam) {
-        Assert.notNull(userParam.getUsername(),"Username must not be null");
-        Assert.notNull(userParam.getEmail(),"Email must not be null");
+    public boolean isSigned(SignUpParam signUpParam) {
+        Assert.notNull(signUpParam.getUsername(),"Username must not be null");
+        Assert.notNull(signUpParam.getEmail(),"Email must not be null");
 
         boolean isExist=false;
         List<User> users=userRepository.findAll();
         for (User user:users){
-            if (user.getUsername().equals(userParam.getUsername())||user.getEmail().equals(userParam.getEmail())){
+            if (user.getUsername().equals(signUpParam.getUsername())||user.getEmail().equals(signUpParam.getEmail())){
                 isExist=true;
                 break;
             }

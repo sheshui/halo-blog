@@ -1,9 +1,7 @@
 package neuqsoft.sheshui.haloblog.service;
 
 import neuqsoft.sheshui.haloblog.model.entity.User;
-import neuqsoft.sheshui.haloblog.model.params.UserParam;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.Repository;
+import neuqsoft.sheshui.haloblog.model.params.SignUpParam;
 import org.springframework.lang.NonNull;
 import org.springframework.lang.Nullable;
 
@@ -81,11 +79,11 @@ public interface UserService  {
     /**
      * Creates an user.
      *
-     * @param userParam user param must not be null.
+     * @param signUpParam user param must not be null.
      * @return created user
      */
     @NonNull
-    User createBy(@NonNull UserParam userParam);
+    User createBy(@NonNull SignUpParam signUpParam);
 
     /**
      * The user must not expire.
@@ -99,10 +97,10 @@ public interface UserService  {
      * 判断用户名是否已经存在
      * the username is exist
      *
-     * @param username username 用户名
+     * @param signUpParam username 用户名
      * @return is exist 是否存在
      */
-    boolean isRegisted(@NonNull UserParam user);
+    public boolean isSigned(SignUpParam signUpParam);
 
     /**
      * Checks the password is match the user password.
