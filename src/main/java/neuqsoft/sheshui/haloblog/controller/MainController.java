@@ -11,6 +11,6 @@ public class MainController {
 
     @GetMapping("/")
     public String mainPage(){
-        return "index.html";
+        return "http:localhost:8080/index.html";
     }
 }

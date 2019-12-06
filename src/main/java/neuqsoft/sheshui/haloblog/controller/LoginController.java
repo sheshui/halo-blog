@@ -1,11 +1,27 @@
 package neuqsoft.sheshui.haloblog.controller;
 
-import org.springframework.stereotype.Controller;
+import io.swagger.annotations.ApiOperation;
+import neuqsoft.sheshui.haloblog.model.params.LoginParam;
+import neuqsoft.sheshui.haloblog.security.token.AuthToken;
+import neuqsoft.sheshui.haloblog.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
 
 /**
  * 处理用户登录登出
  * @author sheshui
  */
-@Controller
+@RestController
 public class LoginController {
+
+    @Autowired
+    UserService userService;
+
+    @PostMapping("/signin")
+    @ApiOperation(value = "登录")
+    public AuthToken login(@RequestBody LoginParam loginParam){
+        return null;
+    }
 }
