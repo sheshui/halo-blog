@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class MainController {
 
-    @GetMapping("/")
+    @GetMapping
     public String mainPage(){
-        return "http:localhost:8080/index.html";
+        return "redirect:/admin/index.html";
     }
 }
