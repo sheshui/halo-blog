@@ -47,7 +47,13 @@ public class UserServiceImpl implements UserService {
 
     @Override
     public User createBy(SignUpParam signUpParam) {
-        return null;
+        Assert.notNull(signUpParam,"Sign up param must not be null");
+
+        User user=signUpParam.convertTo();
+
+        Assert.notNull(user,"user must not be null");
+
+        return userRepository.save(user);
     }
 
     @Override

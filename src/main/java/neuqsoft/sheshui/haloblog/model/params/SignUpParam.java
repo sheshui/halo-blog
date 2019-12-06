@@ -1,6 +1,8 @@
 package neuqsoft.sheshui.haloblog.model.params;
 
 import lombok.Data;
+import neuqsoft.sheshui.haloblog.model.dto.base.InputConverter;
+import neuqsoft.sheshui.haloblog.model.entity.User;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;
@@ -9,7 +11,7 @@ import javax.validation.constraints.Size;
  * @author sheshui
  */
 @Data
-public class SignUpParam {
+public class SignUpParam implements InputConverter<User> {
 
     @NotBlank(message = "用户名不能为空")
     @Size(max = 255, message = "用户名长度不能超过 {max}")

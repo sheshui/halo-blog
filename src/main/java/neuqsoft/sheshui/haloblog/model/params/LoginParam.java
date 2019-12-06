@@ -1,6 +1,8 @@
 package neuqsoft.sheshui.haloblog.model.params;
 
 import lombok.Data;
+import neuqsoft.sheshui.haloblog.model.dto.base.InputConverter;
+import neuqsoft.sheshui.haloblog.model.entity.User;
 
 import javax.validation.constraints.NotBlank;
 import javax.validation.constraints.Size;

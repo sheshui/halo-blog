@@ -14,6 +14,7 @@ import java.util.Date;
 @ToString(callSuper = true)
 @EqualsAndHashCode(callSuper = true)
 public class User extends BaseEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
@@ -24,6 +25,7 @@ public class User extends BaseEntity {
      */
     @Column(name = "username", columnDefinition = "varchar(50) not null")
     private String username;
+
     /**
      * user neck name,used to display on page.
      */
